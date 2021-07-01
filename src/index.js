@@ -3,6 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const morgan = require("morgan");
 const dbConfig = require('./config/db')
+const routes = require('./routes')
 const PORT = process.env.PORT || 5000
 
 const app = express()
@@ -41,6 +42,9 @@ class App {
         app.get("/", (req, res) => {
             res.json("Hello Collective");
         });
+
+        app.use('/', routes);
+
     }
 
 
