@@ -1,0 +1,25 @@
+{
+  "name": "cllctve",
+  "version": "1.0.0",
+  "description": "Backend assessment for cllctve",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src"
+  },
+  "keywords": [
+    "cllctve",
+    "api",
+    "backend"
+  ],
+  "author": "Wisdom Ekpot <wisdomekpot@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.9"
+  }
+}
