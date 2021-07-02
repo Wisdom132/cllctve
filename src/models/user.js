@@ -8,4 +8,5 @@ let userSchema = mongoose.Schema({
         unique: true
     }
 }, { timestamps: true });
+userSchema.plugin(uniqueValidator);
 module.exports = mongoose.model("User", userSchema);

@@ -6,6 +6,7 @@ const UserController = require('./controllers/user.controller')
 const router = express.Router();
 
 router.get('/projects', ProjectController.getAllProjects);
+router.post('/create-project', ProjectController.createProject);
 
 
 router.get('/portfolio-comments/:projectId', CommentController.getCommentForProject);

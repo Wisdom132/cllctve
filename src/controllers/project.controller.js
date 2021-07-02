@@ -18,6 +18,27 @@ class ProjectController extends BaseControler {
         }
 
     }
+
+
+    static async createProject(req, res) {
+        let projectService = new ProjectService();
+        try {
+            let payload = {
+                projectName: req.body.projectName
+            }
+            let project = await projectService.createProject(payload);
+            res.status(200).json({
+                msg: "Project created",
+                data: project
+            })
+        } catch (err) {
+            res.status(500).json({
+                error: err,
+                msg: "An error occured"
+            })
+        }
+
+    }
 }
 
 module.exports = ProjectController;
