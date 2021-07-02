@@ -11,7 +11,10 @@ class ProjectController extends BaseControler {
                 data: projects
             })
         } catch (err) {
-            console.log(err)
+            res.status(500).json({
+                error: err,
+                msg: "An error occured"
+            })
         }
 
     }

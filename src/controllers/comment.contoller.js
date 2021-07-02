@@ -11,7 +11,10 @@ class CommentControler extends BaseControler {
                 data: comments
             })
         } catch (err) {
-            console.log(err)
+            res.status(500).json({
+                error: err,
+                msg: "An error occured"
+            })
         }
 
     }
@@ -30,7 +33,10 @@ class CommentControler extends BaseControler {
                 message: 'Comment Added'
             })
         } catch (err) {
-            console.log(err)
+            res.status(500).json({
+                error: err,
+                msg: "An error occured"
+            })
         }
 
     }

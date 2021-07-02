@@ -23,11 +23,15 @@ class UserController extends BaseControler {
                 firstName: req.body.firstName
             }
             let users = await userService.addUser(payload);
-            res.json({
+            res.status(200).json({
                 data: users,
                 msg: 'User created'
             })
         } catch (err) {
+            res.status(500).json({
+                error: err,
+                msg: "An error occured"
+            })
             console.log(err)
         }
 
