@@ -3,6 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const morgan = require("morgan");
 const dbConfig = require('./config/db')
+require('dotenv').config()
 const routes = require('./routes')
 const PORT = process.env.PORT || 5000
 
@@ -21,6 +22,7 @@ class App {
     }
 
     initExpressMiddleware() {
+        require('dotenv').config()
         app.use(cors());
         app.use(express.json());
         app.use(morgan("dev"));
@@ -29,7 +31,7 @@ class App {
     initDB() {
         mongoose.set("useCreateIndex", true);
         mongoose
-            .connect(dbConfig.database, { useNewUrlParser: true })
+            .connect(process.env.DATABASE_URL, { useNewUrlParser: true })
             .then(() => {
                 console.log("Database is connected");
             })
