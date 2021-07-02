@@ -4,7 +4,8 @@
   "description": "Backend assessment for cllctve",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src"
+    "dev": "nodemon src",
+    "start":"node src"
   },
   "keywords": [
     "cllctve",
