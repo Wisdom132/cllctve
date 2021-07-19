@@ -2,9 +2,14 @@ const { Model } = require('mongoose');
 const { NotFoundException } = require('../exceptions');
 const { Helper } = require('../helpers/index');
 
+// BASIC CRUD SERVICE CLASS THAT CAN BE EXTENDED
 class BasicServiceImpl {
+  // mongoose model/schema: Model/Schema
   model;
+  // relationships: string[]
   populate = [];
+
+  // name of model: string
   modelName;
 
   create(createDto) {

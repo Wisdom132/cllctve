@@ -1,5 +1,8 @@
 const { Helper } = require('../helpers/index');
 
+// THIS HERE IS A BLESSING :)
+// RESOLVE RESPONSES AND ERRORS
+
 const resolveError = async ({ res, error }) => {
   var { status, message } = error;
   if (!status) status = 500;
@@ -26,7 +29,6 @@ const resolveResponse = async ({
     }
     res.status(status).json(finalresponse);
   } catch (error) {
-    // const { status } = error;
     resolveError({ res, error });
   }
 };

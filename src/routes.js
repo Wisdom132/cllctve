@@ -5,6 +5,7 @@ const UserController = require('./controllers/user.controller');
 
 const router = express.Router();
 
+// ROUTE DEFINITIONS FOR CONTROLLERS THAT EXTEND BASIC-CONTROLLERIMPL
 router.get('/projects', (req, res) => {
   ProjectController.findAll(req, res);
 });
