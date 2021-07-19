@@ -1,13 +1,10 @@
-const Project = require('../models/project')
-class ProjectService {
-    async getAllProjects() {
-        return await Project.find()
-    }
+const Project = require('../models/project');
 
-    async createProject(data) {
-        return await Project.create(data);
-    }
+const BasicServiceImpl = require('../shared/basics/basic.service');
+
+class ProjectService extends BasicServiceImpl {
+  model = Project;
+  modelName = 'Project';
 }
-module.exports = ProjectService
 
-
+module.exports = new ProjectService();
