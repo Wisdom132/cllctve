@@ -1,44 +1,10 @@
-const ProjectService = require('../services/project.service');
-const BaseControler = require('./BaseController')
+const projectService = require('../services/project.service');
+const resolveResponse = require('../shared/resolvers');
+const { UseBody, UseParams } = require('../shared/helpers/index');
+const BasicControllerImpl = require('../shared/basics/basic.controller');
 
-class ProjectController extends BaseControler {
-    static async getAllProjects(req, res) {
-        let projectService = new ProjectService();
-        try {
-            let projects = await projectService.getAllProjects();
-            res.status(200).json({
-                msg: "All Projects",
-                data: projects
-            })
-        } catch (err) {
-            res.status(500).json({
-                error: err,
-                msg: "An error occured"
-            })
-        }
-
-    }
-
-
-    static async createProject(req, res) {
-        let projectService = new ProjectService();
-        try {
-            let payload = {
-                projectName: req.body.projectName
-            }
-            let project = await projectService.createProject(payload);
-            res.status(200).json({
-                msg: "Project created",
-                data: project
-            })
-        } catch (err) {
-            res.status(500).json({
-                error: err,
-                msg: "An error occured"
-            })
-        }
-
-    }
+class ProjectController extends BasicControllerImpl {
+  service = projectService;
 }
 
-module.exports = ProjectController;
+module.exports = new ProjectController();
